@@ -1,0 +1,6 @@
+#每周六13点进行备份
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=petrus
+HOME=/home/petrus
+0 13 * * 6 bash /home/petrus/Backup/backup_config.sh

@@ -1,6 +1,0 @@
-eval "$(dbus-launch --sh-syntax --exit-with-session)"
-export XMODIFIERS="@im=fcitx"
-export XIM_PROGRAM=fcitx
-export XIM=fcitx
-export QT_IM_MODULE=fcitx
-export GTK_IM_MODULE=fcitx

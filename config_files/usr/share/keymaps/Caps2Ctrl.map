@@ -1,0 +1,5 @@
+keymaps 0-2,4-6,8-9,12
+keycode 29 = Control
+keycode 58 = Control
+keycode 97 = Caps_Lock
+# alt_is_meta # fixes the Alt key

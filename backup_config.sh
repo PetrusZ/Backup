@@ -24,3 +24,4 @@ do
 done
 
 touch $backup_dir/backup_stamp
+date > $backup_dir/backup_stamp

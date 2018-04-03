@@ -58,8 +58,8 @@ media-sound/netease-cloud-music
 media-video/mpv
 media-video/vlc
 net-analyzer/mtr
-net-analyzer/netcat
 net-analyzer/nmap
+net-analyzer/openbsd-netcat
 net-analyzer/tcpdump
 net-analyzer/tcptraceroute
 net-analyzer/traceroute

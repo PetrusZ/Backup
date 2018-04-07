@@ -544,7 +544,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'dyng/ctrlsf.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -601,11 +601,14 @@ set background=dark
 " let g:rehash256 = 1
 " colorscheme molokai
 
-let g:gruvbox_contrast_dark="hard"
+" let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
 "
 " let g:seoul256_background = 234
 " colorscheme seoul256
+
+" 设置背景透明
+" highlight Normal guibg=NONE ctermbg=NONE
 " -----------------------------------------------------------------------------"}}}
 "  < Ack 插件配置 >"{{{
 " -----------------------------------------------------------------------------

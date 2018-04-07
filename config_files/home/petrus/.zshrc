@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="gentoo"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -118,3 +118,33 @@ export PATH="/usr/sbin:/usr/local/sbin:/sbin:${PATH_POWERLINE}:${PATH}"
 
 # more powerful ls
 alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
+
+# spaceship theme setting
+
+spaceship_rename_terminal_window() {
+  # Reset tmux pane title
+  printf '\033]2;%s\033\\' "${PWD/#$HOME/~}"
+}
+
+SPACESHIP_PROMPT_ORDER=(
+  rename_terminal_window
+  time
+  user
+  dir
+  host
+  git
+  exec_time
+  line_sep
+  jobs
+  exit_code
+  char
+)
+
+# SPACESHIP_CHAR_SYMBOL="❯ "
+# SPACESHIP_JOBS_SYMBOL="»"
+SPACESHIP_TIME_SHOW=true
+SPACESHIP_USER_PREFIX="as "
+SPACESHIP_USER_SHOW="needed"
+SPACESHIP_DIR_TRUNC=0
+SPACESHIP_DIR_TRUNC_PREFIX=".../"
+SPACESHIP_DIR_TRUNC_REPO=false

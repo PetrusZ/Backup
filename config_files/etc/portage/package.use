@@ -8,6 +8,7 @@ dev-lang/python sqlite
 x11-wm/awesome -gnome
 x11-misc/lightdm -gnome
 x11-misc/rofi windowmode
+x11-misc/dunst dunstify
 x11-terms/gnome-terminal -gnome-shell -nautilus
 sys-apps/portage rsync-verify
 www-client/chromium -gnome-keyring

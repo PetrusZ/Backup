@@ -8,8 +8,6 @@ if [ $# -ne 3 ]; then
    exit
 fi
 
-exit
-
 mkdir -p /usr/local/portage/$1/$2
 cp $3 /usr/local/portage/$1/$2/
 chown -R portage:portage /usr/local/portage

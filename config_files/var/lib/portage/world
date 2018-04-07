@@ -22,6 +22,7 @@ app-i18n/fcitx-libpinyin
 app-misc/colordiff
 app-misc/evemu
 app-misc/neofetch
+app-misc/ranger
 app-misc/task
 app-misc/tmux
 app-portage/cpuid2cpuflags
@@ -46,6 +47,7 @@ dev-python/pip
 dev-python/pylint
 dev-util/strace
 games-roguelike/nethack
+lxde-base/lxappearance
 media-fonts/fontawesome
 media-fonts/noto
 media-fonts/powerline-symbols
@@ -68,12 +70,15 @@ net-im/telegram-desktop-bin
 net-mail/mailbase
 net-misc/aria2
 net-misc/networkmanager
+net-misc/proxychains
 net-misc/remmina
 net-misc/sshpass
 net-misc/whois
+net-wireless/iw
 sci-mathematics/calc
 sys-apps/dmidecode
 sys-apps/gsmartcontrol
+sys-apps/lm_sensors
 sys-apps/mlocate
 sys-apps/portage
 sys-apps/smartmontools
@@ -100,11 +105,13 @@ x11-drivers/xf86-input-libinput
 x11-drivers/xf86-video-ati
 x11-drivers/xf86-video-intel
 x11-misc/compton
-x11-misc/i3blocks
+x11-misc/dunst
 x11-misc/lightdm
 x11-misc/pcmanfm
+x11-misc/py3status
 x11-misc/rofi
 x11-misc/unclutter
 x11-misc/xclip
 x11-terms/gnome-terminal
-x11-wm/i3
+x11-themes/adapta-gtk-theme
+x11-wm/i3-gaps

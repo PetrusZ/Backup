@@ -179,7 +179,8 @@ assign [class="netease-cloud-music"] $WS5
 
 # 指定程序默认悬浮窗口
 #for_window [class="Termite"] floating enable, resize set 700 600, move position center
-
+# TODO:Need to fix, not work
+for_window [id="^127.0.0.1:.*/markdown/.*Chromium$"] move container to workspace $WS1
 
 #===window control===
 
@@ -492,8 +493,8 @@ exec --no-startup-id fcitx
 # exec --no-startup-id xautolock -time 10 -locker "lock"
 # exec --no-startup-id sudo chmod 666 /sys/class/leds/asus\:\:kbd_backlight/brightness
 
-exec --no-startup-id gnome-terminal
 exec --no-startup-id chromium
+exec --no-startup-id gnome-terminal
 exec --no-startup-id telegram-desktop
 exec --no-startup-id pcmanfm
 exec --no-startup-id unclutter

@@ -334,6 +334,9 @@ set foldmethod=marker    " 设置折叠方式为标记折叠
 set confirm               " 关闭时如果存在未保存的文件出现提示
 set scrolloff=5           " 距离顶部或底部还有5行的时候就开始滚动屏幕
 set complete-=k complete+=k     "将字典补全添加到默认补全列表中
+set conceallevel=2        " 可隐藏文字等级
+set concealcursor=c       " 在什么模式下光标所在行会被隐藏
+set updatetime=100        " swp与CursorHold autocmd的更新时间，目前主要用于gitgutter插件更新速度
 
 syntax enable
 filetype plugin indent on          "开启文件类型插件和缩进识别功能
@@ -501,7 +504,7 @@ function! BuildYCM(info)
     endif
     execute "cd ~/.vim/plugged/YouCompleteMe/ycm_build"
     !cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON -DUSE_PYTHON2=OFF . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
-    !cmake --build . --target ycm_core
+    !cmake --build . --target ycm_core -- -j5
   endif
 endfunction
 
@@ -544,7 +547,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'dyng/ctrlsf.vim'
 Plug 'airblade/vim-gitgutter'
-" Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
@@ -574,7 +577,7 @@ Plug 'romainl/flattened'
 " use vim to write
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.vim'
-" Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
 " Plug 'vim-pandoc/vim-pandoc-after'
 
@@ -619,6 +622,36 @@ nnoremap <leader>a :Ack! <C-R><C-W><CR>
 if executable('ag')
     let g:ackprg = 'ag -t --vimgrep'
 endif
+" -----------------------------------------------------------------------------"}}}
+"  < ale 插件配置 >"{{{
+" -----------------------------------------------------------------------------
+" Disable c/cpp linter for conflict with YouCompleteMe
+let g:ale_linters = {'c': [], 'cpp': [], 'python': ['flake8']}
+
+" • ✹
+let g:ale_sign_error = '✹'
+let g:ale_sign_warning = '✹'
+
+" python
+let g:ale_python_flake8_args="--ignore=E722,E116 --max-line-length=120"
+" --ignore=E114,E116,E131
+" --ignore=E225,E124,E712,E116
+
+" c
+" let g:ale_cpp_gcc_executable="gcc"
+" let g:ale_cpp_gcc_options="-std=c11"
+
+" c++
+" let g:ale_cpp_gcc_executable="gcc"
+" let g:ale_cpp_gcc_options="-std=c++11 -Wall"
+
+" clang
+" let g:ale_cpp_gcc_options="-std=c++14"
+
+" key map
+" nmap <F2> <Plug>(ale_next_wrap)
+" nmap <s-F2> <Plug>(ale_previous_wrap)
+" nmap <c-F2> :ALEDetail<CR>
 " -----------------------------------------------------------------------------"}}}
 "  < EasyMotion 插件配置 >"{{{
 " -----------------------------------------------------------------------------
@@ -741,7 +774,8 @@ let g:ycm_filetype_blacklist = {
             \ 'vimwiki' : 1,
             \ 'pandoc' : 1,
             \ 'infolog' : 1,
-            \ 'mail' : 1
+            \ 'mail' : 1,
+            \ 'messages' : 1
             \}
 
 " " 输入第2个字符开始补全
@@ -770,8 +804,8 @@ let g:ycm_key_invoke_completion = '<C-l>'
 " let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 
-" let g:ycm_error_symbol = 'E'
-" let g:ycm_warning_symbol = 'W'
+let g:ycm_error_symbol = g:ale_sign_error
+let g:ycm_warning_symbol = g:ale_sign_error
 
 nnoremap <F12> :YcmForceCompileAndDiagnostics<CR>
 
@@ -887,8 +921,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <A-n> <Plug>AirlineSelectPrevTab
-nmap <A-m> <Plug>AirlineSelectNextTab
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>= <Plug>AirlineSelectNextTab
 
 " too slow
 " switching to buffer 1 - 9 is mapped to ,[nOfBuffer]
@@ -906,9 +940,11 @@ nmap <A-d> :bd<CR>
 " -----------------------------------------------------------------------------"}}}
 " < vim-markdown 配置 >"{{{
 " -----------------------------------------------------------------------------
-let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_folding_disabled = 1
 " disable conceal
-let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal = 2
+" NOTE: not work with vimwiki
+let g:vim_markdown_fenced_languages = ['c++=cpp', 'viml=vim', 'bash=sh', 'python=python', 'xmodmap=xmodmap']
 " -----------------------------------------------------------------------------"}}}
 "  < vim-cpp-enhanced-highlight 插件配置 >"{{{
 " -----------------------------------------------------------------------------
@@ -927,14 +963,19 @@ let g:cpp_concepts_highlight = 1
 " -----------------------------------------------------------------------------
 map <leader>wha :VimwikiAll2HTML<cr>
 map <leader>wto :VimwikiTOC<cr>
+
 let g:vimwiki_list = [{'path_html':'/home/petrus/vimwiki/html',
                        \ 'template_path':'/home/petrus/vimwiki/html/assets/',
                        \ 'template_default': 'default',
                        \ 'template_ext': '.tpl',
+                       \ 'syntax': 'markdown',
+                       \ 'ext': '.md',
+                       \ 'nested_syntaxes': {'python': 'python', 'c++': 'cpp', 'bash': 'sh', 'xmodmap': 'xmodmap'},
+                       \ 'custom_wiki2html': '/home/petrus/.vim/autoload/wiki2html.sh',
                        \ 'auto_export': 0}]
-let g:vimwiki_camel_case = 0
+let g:custom_wiki2html_args = "null"
+let g:vimwiki_global_ext = 0
 let g:vimwiki_hl_cb_checked = 1
-let g:vimwiki_folding = 1
 let g:vimwiki_browsers = ['chromium']
 let g:vimwiki_CJK_length = 1
 let g:vimwiki_dir_link = 'index'
@@ -942,43 +983,22 @@ let g:vimwiki_dir_link = 'index'
 let g:vimwiki_conceallevel = 2
 " let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
 let g:vimwiki_valid_html_tags = 'div, span, table, td, pre, tr'
+
+" let vimwiki use vim makrdown plugin syntax instead of it's own buidin syntax
+" autocmd FileType vimwiki set syntax=markdown
 " -----------------------------------------------------------------------------"}}}
-"  < syntastic 插件配置 >"{{{
+" "  < syntastic 插件配置 >"{{{
 " -----------------------------------------------------------------------------
-let g:syntastic_check_on_open = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_loc_list_height = 5
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_error_symbol = '✗'
+" let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_loc_list_height = 5
+" let g:syntastic_enable_highlighting = 0
+" let g:syntastic_always_populate_loc_list = 1
 
-" let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = '-std=c++11'
-" -----------------------------------------------------------------------------"}}}
-"  < ale 插件配置 >"{{{
-" -----------------------------------------------------------------------------
-" Disable c/cpp linter for conflict with YouCompleteMe
-let g:ale_linters = {'c': [], 'cpp': [], 'python': ['flake8']}
-
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-
-" c
-" let g:ale_cpp_gcc_executable="gcc"
-" let g:ale_cpp_gcc_options="-std=c11"
-
-" c++
-" let g:ale_cpp_gcc_executable="gcc"
-" let g:ale_cpp_gcc_options="-std=c++11 -Wall"
-
-" clang
-" let g:ale_cpp_gcc_options="-std=c++14"
-
-" key map
-" nmap <F2> <Plug>(ale_next_wrap)
-" nmap <s-F2> <Plug>(ale_previous_wrap)
-" nmap <c-F2> :ALEDetail<CR>
+" " let g:syntastic_cpp_compiler = 'g++'
+" let g:syntastic_cpp_compiler_options = '-std=c++11'
 " -----------------------------------------------------------------------------"}}}
 "  < NERDTree 插件配置 >"{{{
 " -----------------------------------------------------------------------------
@@ -1005,6 +1025,10 @@ let NERDTreeShowBookmarks=1
 nmap <leader>il :IndentLinesToggle<CR>
 
 let g:indentLine_char = "│"
+" reject indentLine overwrite my conceal setting
+let g:indentLine_setConceal = 0
+" let g:indentLine_conceallevel = 2
+" let g:indentLine_concealcursor = "c"
 
 " 设置终端对齐线颜色
 " let g:indentLine_color_term = 239
@@ -1023,4 +1047,13 @@ let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status
 " vim-multiple-cursor 插件配置
 " let g:multi_cursor_quit_key='<C-c>'
 let g:multi_cursor_exit_from_insert_mode=0
+
+" markdown-preview
+" XXX:NOT WORK
+let g:mkdp_command_for_global = 0
+let g:mkdp_path_to_chrome = "chromium --new-window"
+
+" vim-pandoc 配置
+let g:pandoc#filetypes#handled=["rst", "textile"]
+let g:pandoc#filetypes#pandoc_markdown=0
 " -----------------------------------------------------------------------------"}}}

@@ -1,7 +1,9 @@
-app-portage/layman sync-plugin-portage git
+app-editors/emacs xft
 app-editors/vim python terminal
 app-editors/gvim python terminal
+app-portage/layman sync-plugin-portage git
 app-misc/task vim-syntax zsh-completion
+app-i18n/fcitx gtk2 gtk3
 media-sound/ncmpcpp clock visualizer
 net-misc/remmina ssh vnc
 dev-lang/python sqlite

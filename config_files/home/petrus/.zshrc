@@ -116,8 +116,17 @@ export PATH="/usr/sbin:/usr/local/sbin:/sbin:${PATH_POWERLINE}:${PATH}"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
 # more powerful ls
 alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR %CF_%CR %AF_%AR %#15s [%Y] %p\n" 2>/dev/null'
+
+alias history_stamp='fc -il 1'
+
+# proxy
+# export http_proxy=socks5://192.168.2.1:23456
+# export https_proxy=socks5://192.168.2.1:23456
 
 # spaceship theme setting
 

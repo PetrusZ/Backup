@@ -124,6 +124,8 @@ alias LS='find -mount -maxdepth 1 -printf "%.5m %10M %#9u:%-9g %#5U:%-5G %TF_%TR
 
 alias history_stamp='fc -il 1'
 
+alias steam='LIBGL_DRI3_DISABLE=1 /usr/bin/steam'
+
 # proxy
 # export http_proxy=socks5://192.168.2.1:23456
 # export https_proxy=socks5://192.168.2.1:23456

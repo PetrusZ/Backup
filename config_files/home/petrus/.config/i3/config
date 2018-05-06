@@ -129,10 +129,10 @@ set $WS1 1 Terminal
 set $WS2 2 Chromium
 set $WS3 3 Chat
 set $WS4 4 File
-set $WS5 5 Media
-set $WS6 6 Download
-set $WS7 7 Code
-set $WS8 8 Game
+set $WS5 5 Game
+set $WS6 6 Media
+set $WS7 7 Download
+set $WS8 8 Code
 set $WS9 9 Trash
 set $WS0 0 Main
 
@@ -168,19 +168,17 @@ bindsym $mod+Control+0 move container to workspace $WS0
 
 #---assign workspace---
 
+for_window [title=".*\.md  -  Chromium" class="Chromium"] move container to workspace $WS1
 #指定工作区，通过xprop命令查看名称
 assign [class="Chromium"] $WS2
 assign [class="Telegram"] $WS3
-# assign [class="Evolution"] $WS3
 assign [class="Pcmanfm"] $WS4
-assign [class="netease-cloud-music"] $WS5
-# assign [class=""] $WS6
+assign [class="Steam"] $WS5
+assign [class="netease-cloud-music"] $WS6
 # assign [class="qBittorrent"] $WS7
 
 # 指定程序默认悬浮窗口
 #for_window [class="Termite"] floating enable, resize set 700 600, move position center
-# TODO:Need to fix, not work
-for_window [id="^127.0.0.1:.*/markdown/.*Chromium$"] move container to workspace $WS1
 
 #===window control===
 
@@ -271,9 +269,9 @@ bindsym $mod+v split v
 #===shortcut===
 
 #重载配置
-bindsym $mod+Control+c reload
+bindsym $mod+Control+c reload ; exec notify-send 'Reloaded i3 configuration.'
 #重启i3
-bindsym $mod+Control+r restart
+bindsym $mod+Control+r restart ; exec notify-send 'Restarted i3.'
 
 # 退出动作
 # bindsym $mod+Control+e exec i3-nagbar -t warning -m 'What to do?' \
@@ -284,8 +282,6 @@ bindsym $mod+Control+r restart
 #     -b '混合休眠' 'sudo systemctl hybrid-sleep' \
 #     -b '关机' 'sudo shutdown -h now' \
 #     -b '重启' 'sudo reboot'
-
-bindsym $alt+l exec lock
 
 # 音量
 bindsym XF86AudioRaiseVolume exec "amixer sset 'Master' 5%+ unmute"
@@ -330,16 +326,16 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 mode "resize" {
     # 进入resize模式之后才能更改
     # 通过vim模式更改大小
-    bindsym k resize shrink height 10 px or 10 ppt
-    bindsym j resize grow height 10 px or 10 ppt
-    bindsym h resize shrink width 10 px or 10 ppt
-    bindsym l resize grow width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym j resize shrink height 10 px or 10 ppt
+    bindsym h resize grow width 10 px or 10 ppt
+    bindsym l resize shrink width 10 px or 10 ppt
 
     # 通过方向键更改大小
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Up resize grow height 10 px or 10 ppt
+    bindsym Down resize shrink height 10 px or 10 ppt
+    bindsym Left resize grow width 10 px or 10 ppt
+    bindsym Right resize shrink width 10 px or 10 ppt
 
     # 恢复正常模式
     bindsym Return mode "default"
@@ -435,25 +431,43 @@ mode "$mode_system" {
 }
 bindsym $mod+Control+e mode "$mode_system"
 
+# mpd控制模式
+set $mode_mpd mpd (p) prev, (n) next, (t) toggle
+mode "$mode_mpd" {
+    bindsym p mode "default", exec --no-startup-id mpc --host=/home/petrus/.mpd/mpd.socket prev
+    bindsym n mode "default", exec --no-startup-id mpc --host=/home/petrus/.mpd/mpd.socket next
+    bindsym t mode "default", exec --no-startup-id mpc --host=/home/petrus/.mpd/mpd.socket toggle
+
+    # 恢复正常模式
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Control+p mode "$mode_mpd"
+
 #===stat bar====
 
 #状态栏
 bar {
-	position bottom
+    position bottom
     tray_output none
     status_command py3status --dbus-notify -c ~/.config/i3/i3status.conf
     # status_command i3blocks -c ~/.config/i3/i3blocks.conf
+
     # 想让bar透明可以去掉下面一行的注释，不过托盘可能显示不完美
     # i3bar_command i3bar -t
     # status_command i3status
-	font pango:Noto Sans , Monospace, Taskbar 10
-	# font pango:Ubuntu Mono 12.5px
-    separator_symbol " | "
-	# separator_symbol "//"
-	# strip_workspace_numbers yes
-    # 非i3-gaps请删除下面这一行
-	# height 24
 
+    font pango:Noto Sans , Monospace, Taskbar 10
+    # font pango:Ubuntu Mono 12.5px
+    separator_symbol " | "
+
+    # separator_symbol "//"
+    # strip_workspace_numbers yes
+    # 非i3-gaps请删除下面这一行
+    # height 24
+
+    # 取消状态栏鼠标滚动
     bindsym button4 nop
     bindsym button5 nop
 
@@ -496,8 +510,9 @@ exec --no-startup-id fcitx
 exec --no-startup-id chromium
 exec --no-startup-id gnome-terminal
 exec --no-startup-id telegram-desktop
-exec --no-startup-id pcmanfm
 exec --no-startup-id unclutter
+# exec --no-startup-id pcmanfm
+# exec --no-startup-id LIBGL_DRI3_DISABLE=1 steam
 # exec --no-startup-id evolution
 # exec --no-startup-id sleep 3&&i3-msg "workspace 4 Chat; exec gnome-terminal -e weechat; workspace 1 Terminal"
 # exec --no-startup-id i3-msg "workspace 6 Media; exec gnome-terminal -e cmus; workspace 1 Terminal"

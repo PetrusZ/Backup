@@ -11,4 +11,4 @@ cd $root_dir
 
 git add .
 git commit -m "daily update by crontab script"
-git push
+git push > /dev/null

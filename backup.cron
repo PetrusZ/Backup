@@ -3,5 +3,5 @@ SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 #MAILTO=petrus
 HOME=/home/petrus
-#0 13 * * 6 bash /home/petrus/Backup/backup_config.sh
-51 20 * * * bash /home/petrus/Backup/push2github.sh && notify-send 'Backup configration success.'
+#0 13 * * 6 export DISPLAY=:0 bash /home/petrus/Backup/push2github.sh && notify-send 'Backup configration success.'
+14 21 * * * export DISPLAY=:0 ; bash /home/petrus/Backup/push2github.sh && notify-send 'System configration backup success.' || notify-send -u critical 'System configration backup failure.'

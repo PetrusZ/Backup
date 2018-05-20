@@ -11,6 +11,4 @@ cd $root_dir
 
 git add .
 git commit -m "daily update by crontab script"
-git push 2>&1 /dev/null
-
-/usr/bin/notify-send 'Backup configration success.'
+git push &> /dev/null

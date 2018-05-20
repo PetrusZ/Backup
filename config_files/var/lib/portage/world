@@ -58,6 +58,7 @@ dev-util/vint
 games-roguelike/nethack
 games-util/steam-meta
 lxde-base/lxappearance
+mail-mta/postfix
 media-fonts/fontawesome
 media-fonts/noto
 media-fonts/powerline-symbols
@@ -84,7 +85,6 @@ net-dns/bind-tools
 net-ftp/ncftp
 net-im/telegram-desktop-bin
 net-irc/weechat
-net-mail/mailbase
 net-misc/aria2
 net-misc/networkmanager
 net-misc/proxychains

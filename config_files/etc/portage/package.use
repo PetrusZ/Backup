@@ -4,6 +4,7 @@ app-editors/gvim python terminal
 app-portage/layman sync-plugin-portage git
 app-misc/task vim-syntax zsh-completion
 app-i18n/fcitx gtk2 gtk3
+#mail-mta/postfix mbox
 media-sound/mpd audiofile
 media-sound/ncmpcpp clock visualizer
 media-fonts/source-han-sans L10N: ja ko zh-TW

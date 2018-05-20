@@ -129,6 +129,8 @@ alias steam='LIBGL_DRI3_DISABLE=1 /usr/bin/steam'
 alias vi='vim --clean'
 alias vim-tiny='vim -u ~/.vim/vim-tiny.vim'
 
+alias mail_read="mail -f $HOME/mbox"
+
 # proxy
 # export http_proxy=socks5://192.168.2.1:23456
 # export https_proxy=socks5://192.168.2.1:23456

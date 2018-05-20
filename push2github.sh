@@ -10,5 +10,5 @@ source /home/petrus/Backup/backup_config.sh
 cd $root_dir
 
 git add .
-git commit -m "daily update by crontab script" > /dev/null
-git push > /dev/null
+git commit -m "weekly update by crontab script" > /dev/null
+git push &> /dev/null

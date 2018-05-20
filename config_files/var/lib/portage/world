@@ -51,6 +51,7 @@ dev-python/PySDL2
 dev-python/autopep8
 dev-python/flake8
 dev-python/pip
+dev-util/android-tools
 dev-util/cppcheck
 dev-util/strace
 dev-util/vint
@@ -80,6 +81,7 @@ net-analyzer/tcpdump
 net-analyzer/tcptraceroute
 net-analyzer/traceroute
 net-dns/bind-tools
+net-ftp/ncftp
 net-im/telegram-desktop-bin
 net-irc/weechat
 net-mail/mailbase
@@ -89,6 +91,7 @@ net-misc/proxychains
 net-misc/remmina
 net-misc/sshpass
 net-misc/whois
+net-proxy/privoxy
 net-wireless/iw
 sci-mathematics/calc
 sys-apps/dmidecode
@@ -102,9 +105,11 @@ sys-boot/grub:2
 sys-devel/clang
 sys-devel/gdb
 sys-firmware/intel-microcode
+sys-fs/dosfstools
 sys-fs/fuse
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
+sys-power/acpi
 sys-power/cpupower
 sys-process/glances
 sys-process/htop

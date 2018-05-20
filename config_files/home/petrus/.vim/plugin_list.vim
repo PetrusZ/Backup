@@ -90,7 +90,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'tyru/open-browser.vim'
-Plug 'skywind3000/vim-keysound'
+" Plug 'skywind3000/vim-keysound'
 " Plug 'tpope/vim-rsi'
 
 " colorscheme

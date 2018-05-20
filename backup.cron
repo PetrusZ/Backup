@@ -4,4 +4,4 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 #MAILTO=petrus
 HOME=/home/petrus
 #0 13 * * 6 bash /home/petrus/Backup/backup_config.sh
-42 20 * * * bash /home/petrus/Backup/push2github.sh && notify-send 'Backup configration success.'
+44 20 * * * bash /home/petrus/Backup/push2github.sh && notify-send 'Backup configration success.'

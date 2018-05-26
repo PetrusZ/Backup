@@ -59,6 +59,10 @@
 " -----------------------------
 " 侧边栏浏览文件系统、代码结构、undo历史
 "
+" gutentags, gutentags_plus
+" -------------------------
+" 自动生成、管理tags，支持50+种语言
+"
 " tabular, nerdcommenter
 " ----------------------
 " 快速对齐与快速注释
@@ -106,7 +110,7 @@
 " 依赖软件
 " ========
 " git
-" ctags
+" ctags/global/pygments
 " llvm/clang
 " the_silver_searcher aka. ag
 " -----------------------------------------------------------------------------"}}}
@@ -302,6 +306,18 @@
 " :SetexToAtx           Convert all Setex style headers in buffer to Atx. If a range is given, only operate on the range.
 " :TableFormat          Format the table under the cursor
 " :Toc                  create a quickfix vertical window navigable table of contents with the headers
+"
+" Gutentags插件
+" ----------------------------------------------------------------
+"  <leader>cs       Find this symbol
+"  <leader>cg       Find this definition
+"  <leader>cc       Find functions called by this function
+"  <leader>ct       Find functions calling this function
+"  <leader>ce       Find this text string
+"  <leader>cf       Find this egrep pattern
+"  <leader>ci       Find this file
+"  <leader>cd       Find files #including this file
+"  <leader>ca       Find places where this symbol is assigned a value
 " -----------------------------------------------------------------------------}}}
 "  < 选项设置 >"{{{
 " -----------------------------------------------------------------------------
@@ -336,8 +352,9 @@ set concealcursor=c       " 在什么模式下光标所在行会被隐藏
 set updatetime=100        " swp与CursorHold autocmd的更新时间，目前主要用于gitgutter插件更新速度
 set wildmenu              " 在编辑命令行时，按补全键后，临时在状态栏位置显示补全提示
 set autochdir             " 将当前路径自动切换到当前编辑的文件所在的目录
+set noshowmode            " 关闭mode在cmd中的提示，方便echodoc显示
 " set complete-=k complete+=k     "将字典补全添加到默认补全列表中
-set completeopt=menu,preview      " 使用弹出菜单来显示可能的补全并显示当前选择补全的额外信息
+set completeopt=longest,menu      " 使用弹出菜单来显示可能的补全并显示当前选择补全的额外信息
 set timeout timeoutlen=1000 ttimeoutlen=50  " 设置映射延迟为1000ms，键码延迟为50ms
 
 " persistent undo
@@ -384,7 +401,7 @@ augroup Petrus
     autocmd BufRead,BufNewFile *.cron		set filetype=crontab
     " autocmd BufRead,BufNewFile *.conf		set filetype=conf
 
-    autocmd SourcePre $MYVIMRC echomsg 'Loading ' . expand('<afile>') . '!'
+    autocmd SourcePre $MYVIMRC echomsg 'Loading/Sourcing ' . expand('<afile>') . '!'
 
     " 可以自动切换到文件所在的目录
     " autocmd BufEnter * :lchdir %:p:h
@@ -663,6 +680,32 @@ let g:ctrlp_open_multiple_files = 'i'   "hidden in buffer
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_Store,.jpg,.png,.tar,.doc,.pdf " MacOSX/Linux
 " -----------------------------------------------------------------------------"}}}
+"  < gutentags/preview 插件配置 >"{{{
+" -----------------------------------------------------------------------------
+let $GTAGSLABEL = 'native-pygments'
+let $GTAGSCONF = '/usr/share/gtags/gtags.conf'
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_project_root = ['.root']
+
+" generate datebases in my cache directory, prevent gtags files polluting my project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" forbid gutentags adding gtags databases
+let g:gutentags_auto_add_gtags_cscope = 0
+
+" vim-preview
+autocmd FileType qf nnoremap <silent><buffer> p :PreviewQuickfix<cr>
+autocmd FileType qf nnoremap <silent><buffer> P :PreviewClose<cr>
+
+noremap <m-u> :PreviewScroll -1<cr>
+noremap <m-d> :PreviewScroll +1<cr>
+inoremap <m-u> <c-\><c-o>:PreviewScroll -1<cr>
+inoremap <m-d> <c-\><c-o>:PreviewScroll +1<cr>
+" -----------------------------------------------------------------------------"}}}
 "  < nerdcommenter 插件配置 >"{{{
 " -----------------------------------------------------------------------------
 " Add spaces after comment delimiters by default
@@ -735,7 +778,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 " let g:ycm_show_diagnostics_ui = 0
 
 " 自动开启、关闭函数原型预览
-let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 " 有新的诊断数据时自动添加到location list中
@@ -975,11 +1018,13 @@ let g:indentLine_setConceal = 0
 "  < Misc >"{{{
 " -----------------------------------------------------------------------------
 " asyncrun 插件配置
-let g:asyncrun_bell=1
+let g:asyncrun_bell = 1
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
 " auto open quickfix when text add to it
 " autocmd QuickFixCmdPost * botright copen 8
 
+" echodoc 插件配置
+let g:echodoc#enable_at_startup = 1
 
 " vim-multiple-cursor 插件配置
 " let g:multi_cursor_quit_key='<C-c>'

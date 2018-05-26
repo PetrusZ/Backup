@@ -11,6 +11,8 @@ if [ ! -d $backup_dir ]; then
   mkdir $backup_dir
 fi
 
+scp rpi3:~/.aria2/aria2.conf ~/.aria2 > /dev/null
+
 cat $config_list | grep -Ev "^$|#" | while read line
 do
     # 获取目录和文件名

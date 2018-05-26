@@ -676,4 +676,4 @@ readme_directory = no
 inet_protocols = ipv4
 meta_directory = /etc/postfix
 shlib_directory = /usr/lib64/postfix/${mail_version}
-mail_spool_directory = /var/spool/mail
+home_mailbox = .maildir/

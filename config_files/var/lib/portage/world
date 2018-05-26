@@ -1,6 +1,7 @@
 app-admin/logrotate
 app-admin/sudo
 app-admin/syslog-ng
+app-arch/p7zip
 app-arch/rar
 app-crypt/gkeys
 app-dicts/dictd-elements
@@ -51,8 +52,10 @@ dev-python/PySDL2
 dev-python/autopep8
 dev-python/flake8
 dev-python/pip
+dev-python/pygments
 dev-util/android-tools
 dev-util/cppcheck
+dev-util/global
 dev-util/strace
 dev-util/vint
 games-roguelike/nethack

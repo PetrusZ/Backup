@@ -1,6 +1,7 @@
+app-arch/p7zip -wxwidgets
 app-editors/emacs xft
-app-editors/vim python terminal
-app-editors/gvim python terminal
+app-editors/vim python terminal cscope
+app-editors/gvim python terminal cscope
 app-portage/layman sync-plugin-portage git
 app-misc/task vim-syntax zsh-completion
 app-i18n/fcitx gtk2 gtk3
@@ -10,6 +11,7 @@ media-sound/ncmpcpp clock visualizer
 media-fonts/source-han-sans L10N: ja ko zh-TW
 net-misc/aria2 bittorrent metalink
 net-misc/remmina ssh vnc
+dev-util/global vim
 dev-lang/python sqlite
 x11-wm/awesome -gnome
 x11-misc/lightdm -gnome

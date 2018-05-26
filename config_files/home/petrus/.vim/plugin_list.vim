@@ -60,7 +60,9 @@ Plug 'terryma/vim-multiple-cursors'
 " IDE features
 Plug 'majutsushi/tagbar'
 Plug 'mbbill/undotree'
-Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+Plug 'ludovicchabant/vim-gutentags' | Plug 'skywind3000/gutentags_plus'
+Plug 'skywind3000/vim-preview'
 
 Plug 'Kris2k/A.vim'
 Plug 'mileszs/ack.vim'
@@ -70,7 +72,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
-" Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/echodoc.vim'
 
 Plug 'Shougo/denite.nvim'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'

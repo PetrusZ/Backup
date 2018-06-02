@@ -168,7 +168,7 @@ bindsym $mod+Control+0 move container to workspace $WS0
 
 #---assign workspace---
 
-for_window [title=".*\.md  -  Chromium" class="Chromium"] move container to workspace $WS1
+for_window [title=".*\.md - Chromium" class="Chromium"] move container to workspace $WS1
 #指定工作区，通过xprop命令查看名称
 assign [class="Chromium"] $WS2
 assign [class="Telegram"] $WS3

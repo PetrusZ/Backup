@@ -131,6 +131,8 @@ alias vim-tiny='vim -u ~/.vim/vim-tiny.vim'
 
 alias mail_read="mail -f $HOME/mbox"
 
+alias man_zh='LANG=zh_CN.utf8 man'
+
 # proxy
 # export http_proxy=socks5://192.168.2.1:23456
 # export https_proxy=socks5://192.168.2.1:23456

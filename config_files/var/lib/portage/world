@@ -34,6 +34,7 @@ app-portage/genlop
 app-portage/gentoolkit
 app-portage/layman
 app-portage/mirrorselect
+app-portage/pfl
 app-portage/repoman
 app-shells/gentoo-zsh-completions
 app-shells/zsh

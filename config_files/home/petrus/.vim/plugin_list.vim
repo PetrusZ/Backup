@@ -83,6 +83,8 @@ Plug 'w0rp/ale'
 Plug 'prabirshrestha/async.vim' | Plug 'prabirshrestha/vim-lsp'
 " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
+Plug 'tpope/vim-fugitive'| Plug 'junegunn/gv.vim'
+
 " Other Util
 Plug 'Valloric/ListToggle'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
@@ -94,6 +96,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'tyru/open-browser.vim'
 " Plug 'skywind3000/vim-keysound'
 " Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-eunuch'
 
 " colorscheme
 Plug 'morhetz/gruvbox'

@@ -36,11 +36,13 @@ app-portage/layman
 app-portage/mirrorselect
 app-portage/pfl
 app-portage/repoman
+app-shells/fzf
 app-shells/gentoo-zsh-completions
 app-shells/zsh
 app-shells/zsh-completions
 app-text/dictd
 app-text/dos2unix
+app-text/evince
 app-text/pandoc
 app-text/sdcv
 app-text/tree

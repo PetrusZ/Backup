@@ -117,6 +117,7 @@ sys-kernel/genkernel
 sys-kernel/gentoo-sources
 sys-power/acpi
 sys-power/cpupower
+sys-process/atop
 sys-process/glances
 sys-process/htop
 sys-process/lsof

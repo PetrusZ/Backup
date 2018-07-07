@@ -175,6 +175,7 @@ assign [class="Telegram"] $WS3
 assign [class="Pcmanfm"] $WS4
 assign [class="Steam"] $WS5
 assign [class="netease-cloud-music"] $WS6
+assign [class="mpv"] $WS6
 assign [class="Uget-gtk"] $WS7
 # assign [class="qBittorrent"] $WS7
 

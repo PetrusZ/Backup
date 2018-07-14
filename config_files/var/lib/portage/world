@@ -1,8 +1,10 @@
 app-admin/logrotate
 app-admin/sudo
 app-admin/syslog-ng
+app-admin/sysstat
 app-arch/p7zip
 app-arch/rar
+app-benchmarks/iozone
 app-crypt/gkeys
 app-dicts/dictd-elements
 app-dicts/dictd-foldoc
@@ -88,6 +90,8 @@ net-analyzer/tcpdump
 net-analyzer/tcptraceroute
 net-analyzer/traceroute
 net-dns/bind-tools
+net-fs/nfs-utils
+net-fs/nfstest
 net-ftp/ncftp
 net-im/telegram-desktop-bin
 net-irc/weechat

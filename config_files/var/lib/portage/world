@@ -58,6 +58,7 @@ dev-python/autopep8
 dev-python/flake8
 dev-python/pip
 dev-python/pygments
+dev-python/pytz
 dev-util/android-tools
 dev-util/cppcheck
 dev-util/global
@@ -117,6 +118,7 @@ sys-devel/gdb
 sys-firmware/intel-microcode
 sys-fs/dosfstools
 sys-fs/fuse
+sys-fs/ntfs3g
 sys-kernel/genkernel
 sys-kernel/gentoo-sources
 sys-power/acpi
@@ -127,6 +129,7 @@ sys-process/htop
 sys-process/lsof
 www-client/chromium
 www-client/uget
+www-plugins/adobe-flash
 x11-apps/xev
 x11-apps/xinput
 x11-apps/xmodmap

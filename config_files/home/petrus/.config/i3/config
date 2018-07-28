@@ -460,7 +460,7 @@ bar {
     # i3bar_command i3bar -t
     # status_command i3status
 
-    font pango:Noto Sans , Monospace, Taskbar 10
+    font pango:Noto Sans , Font Awesome 5 Free Solid, Monospace, Taskbar 10
     # font pango:Ubuntu Mono 12.5px
     separator_symbol " | "
 

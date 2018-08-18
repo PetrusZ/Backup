@@ -11,7 +11,7 @@ media-sound/mpd audiofile
 media-sound/ncmpcpp clock visualizer
 media-fonts/source-han-sans L10N: ja ko zh-TW
 net-misc/aria2 bittorrent metalink
-net-misc/remmina ssh vnc
+net-misc/remmina ssh vnc rdp
 dev-util/global vim
 dev-lang/python sqlite
 x11-wm/awesome -gnome

@@ -31,9 +31,13 @@ endfunction
 
 function! BuildCquery(info) abort
   if a:info.status ==# 'installed' || a:info.status ==# 'updated' || a:info.force
-    execute 'cd ~/.vim/plugged/cquery'
-    !./waf configure --llvm-config=llvm-config --prefix=~/.local  build
-    !./waf install
+    if filewritable('/home/petrus/.vim/plugged/cquery/build') != 2
+        !mkdir /home/petrus/.vim/plugged/cquery/build
+    endif
+    execute 'cd ~/.vim/plugged/cquery/build'
+    !cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/home/petrus/.local" -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DSYSTEM_CLANG=ON -DCMAKE_PREFIX_PATH="/usr/lib/llvm/6"
+    !cmake --build . -- -j5
+    !cmake --build . --target install
   endif
 endfunction
 

@@ -1,5 +1,6 @@
-# www-client/chromium
+www-client/chromium
 x11-themes/adapta-gtk-theme::jorgicio
+media-libs/mesa
 # >dev-libs/libinput-1.10.0
 # >=x11-base/xorg-server-1.19.99.901
 #>sys-kernel/gentoo-sources-4.15.2

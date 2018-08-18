@@ -58,7 +58,9 @@ dev-python/autopep8
 dev-python/flake8
 dev-python/pip
 dev-python/pygments
+dev-python/python-mpd
 dev-python/pytz
+dev-python/tzlocal
 dev-util/android-tools
 dev-util/cppcheck
 dev-util/global
@@ -87,6 +89,7 @@ media-video/vlc
 net-analyzer/mtr
 net-analyzer/nmap
 net-analyzer/openbsd-netcat
+net-analyzer/speedtest-cli
 net-analyzer/tcpdump
 net-analyzer/tcptraceroute
 net-analyzer/traceroute

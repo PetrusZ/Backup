@@ -1,0 +1,10 @@
+# dev-python/pip PYTHON_TARGETS: python2_7 python3_5 python3_6
+# required by dev-python/pip-10.0.1::gentoo
+# required by @selected
+# required by @world (argument)
+# >=dev-python/setuptools-40.0.0 python_targets_python3_5
+# required by dev-python/setuptools-40.0.0::gentoo
+# required by dev-python/pip-10.0.1::gentoo
+# required by @selected
+# required by @world (argument)
+# >=dev-python/certifi-2018.4.16 python_targets_python3_5

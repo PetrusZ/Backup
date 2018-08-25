@@ -2,6 +2,7 @@ app-admin/logrotate
 app-admin/sudo
 app-admin/syslog-ng
 app-admin/sysstat
+app-arch/file-roller
 app-arch/p7zip
 app-arch/rar
 app-benchmarks/iozone

@@ -1,4 +1,5 @@
 app-arch/p7zip -wxwidgets
+app-arch/file-roller -nautilus -packagekit
 app-editors/emacs xft
 app-editors/vim python terminal cscope
 app-editors/gvim python terminal cscope

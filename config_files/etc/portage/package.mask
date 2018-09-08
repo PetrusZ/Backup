@@ -1,4 +1,4 @@
-www-client/chromium
+# www-client/chromium
 x11-themes/adapta-gtk-theme::jorgicio
 # >dev-libs/libinput-1.10.0
 # >=x11-base/xorg-server-1.19.99.901

@@ -98,6 +98,7 @@ net-dns/bind-tools
 net-fs/nfs-utils
 net-fs/nfstest
 net-ftp/ncftp
+net-im/riot-web
 net-im/telegram-desktop-bin
 net-irc/weechat
 net-misc/aria2

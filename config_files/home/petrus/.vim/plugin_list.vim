@@ -93,6 +93,7 @@ Plug 'tpope/vim-fugitive'| Plug 'junegunn/gv.vim'
 Plug 'Valloric/ListToggle'
 Plug 'vimwiki/vimwiki', { 'branch': 'dev' }
 Plug 'tpope/vim-obsession'
+" youdao broken
 Plug 'ianva/vim-youdao-translater'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'skywind3000/asyncrun.vim'

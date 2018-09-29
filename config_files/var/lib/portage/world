@@ -30,6 +30,7 @@ app-misc/neofetch
 app-misc/ranger
 app-misc/task
 app-misc/tmux
+app-misc/xmind
 app-portage/cpuid2cpuflags
 app-portage/eix
 app-portage/euses

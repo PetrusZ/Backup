@@ -1,5 +1,7 @@
-www-client/chromium
+# www-client/chromium
+media-sound/pulseaudio::jorgicio
 x11-themes/adapta-gtk-theme::jorgicio
+x11-wm/i3-gaps::gig
 # >dev-libs/libinput-1.10.0
 # >=x11-base/xorg-server-1.19.99.901
 #>sys-kernel/gentoo-sources-4.15.2

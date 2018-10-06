@@ -15,6 +15,7 @@ net-misc/aria2 bittorrent metalink
 net-misc/remmina ssh vnc rdp
 dev-util/global vim
 dev-lang/python sqlite
+dev-java/oracle-jdk-bin javafx
 x11-wm/awesome -gnome
 x11-misc/lightdm -gnome
 x11-misc/rofi windowmode

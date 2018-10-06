@@ -327,6 +327,7 @@ set expandtab             " 设置tab自动转为合适数量的空格
 set shiftwidth=4          " 设置tab的间隔
 set softtabstop=4         " 四个空格代表一个tab
 set showmatch             " 在输入括号时光标会短暂地跳到与之相匹配的括号处
+set showcmd               " 命令模式下，在底部显示，当前键入的指令
 set autoindent            " 设置自动缩进
 set smartindent           " 设置智能缩进
 set nowrap                " 不自动折行
@@ -357,10 +358,18 @@ set noshowmode            " 关闭mode在cmd中的提示，方便echodoc显示
 set completeopt=longest,menu      " 使用弹出菜单来显示可能的补全并显示当前选择补全的额外信息
 set timeout timeoutlen=1000 ttimeoutlen=50  " 设置映射延迟为1000ms，键码延迟为50ms
 
+" set vim dir
+" // 代表使用绝对路径，避免重名问题
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set undodir=~/.vim/.undo//
+
+" set viminfo file location
+set viminfo+=n~/.vim/.info/viminfo
+
 " persistent undo
 if has("persistent_undo")
     set undofile
-    set undodir=~/.undodir/
     set undolevels=500 "maximum number of changes that can be undone
     set undoreload=10000 "maximum number lines to save for undo on a buffer
 endif
@@ -718,6 +727,9 @@ let g:tagbar_foldlevel = 1
 map <C-p> :CtrlPBuffer<cr>
 map <leader>u :CtrlPMRU<cr>
 
+" 设置默认为按文件名搜索（否则为全路径），在提示符面板内可以使用 <c-d> 来切换。
+let g:ctrlp_by_filename = 1
+
 " set Ctrlp local working dir
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_open_multiple_files = 'i'   "hidden in buffer
@@ -785,6 +797,7 @@ let g:UltiSnipsEditSplit='vertical'
 " -----------------------------------------------------------------------------
 " set completeopt=longest,menu
 let g:ycm_global_ycm_extra_conf = '~/.vim/default_ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " 不显示开启vim时检查ycm_extra_conf文件的信息
 " let g:ycm_confirm_extra_conf=0
 "
@@ -906,7 +919,7 @@ if executable('cquery')
             \ 'name': 'cquery',
             \ 'cmd': {server_info->['cquery']},
             \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-            \ 'initialization_options': { 'cacheDirectory': '/home/petrus/.vim/cquery_cache' },
+            \ 'initialization_options': { 'cacheDirectory': '/home/petrus/.cache/cquery' },
             \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
             \ })
     augroup END

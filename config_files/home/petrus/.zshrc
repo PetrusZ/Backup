@@ -80,6 +80,16 @@ PATH_POWERLINE="/home/petrus/.local/bin"
 PATH_DISTCC="/usr/lib/distcc/bin:"
 export PATH="/usr/sbin:/usr/local/sbin:/sbin:${PATH_POWERLINE}:${PATH}"
 
+# TLDR
+export TLDR_COLOR_BLANK="white"
+export TLDR_COLOR_NAME="cyan"
+export TLDR_COLOR_DESCRIPTION="white"
+export TLDR_COLOR_EXAMPLE="green"
+export TLDR_COLOR_COMMAND="red"
+export TLDR_COLOR_PARAMETER="white"
+export TLDR_CACHE_ENABLED=1
+export TLDR_CACHE_MAX_AGE=720
+
 # enable command auto-correction
 # setopt correctall
 
@@ -132,6 +142,10 @@ alias vim-tiny='vim -u ~/.vim/vim-tiny.vim'
 alias mail_read="mail -f $HOME/mbox"
 
 alias man_zh='LANG=zh_CN.utf8 man'
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+
+unalias fd
 
 [ -f /usr/share/zsh/site-contrib/fzf.zsh ] && source /usr/share/zsh/site-contrib/fzf.zsh
 [ -f /usr/share/zsh/site-functions/_fzf ] && source /usr/share/zsh/site-functions/_fzf

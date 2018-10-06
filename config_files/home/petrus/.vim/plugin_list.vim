@@ -24,7 +24,7 @@ function! BuildYCM(info) abort
         !mkdir /home/petrus/.vim/plugged/YouCompleteMe/ycm_build
     endif
     execute 'cd ~/.vim/plugged/YouCompleteMe/ycm_build'
-    !cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON -DUSE_PYTHON2=OFF . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
+    !cmake -G "Unix Makefiles"  -DUSE_SYSTEM_BOOST=ON -DUSE_PYTHON2=OFF -DUSE_SYSTEM_LIBCLANG=ON . ~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp
     !cmake --build . --target ycm_core -- -j5
   endif
 endfunction
@@ -35,7 +35,7 @@ function! BuildCquery(info) abort
         !mkdir /home/petrus/.vim/plugged/cquery/build
     endif
     execute 'cd ~/.vim/plugged/cquery/build'
-    !cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/home/petrus/.local" -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DSYSTEM_CLANG=ON -DCMAKE_PREFIX_PATH="/usr/lib/llvm/6"
+    !cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="/home/petrus/.local" -DCMAKE_EXPORT_COMPILE_COMMANDS=YES -DSYSTEM_CLANG=ON -DCMAKE_PREFIX_PATH="/usr/lib/llvm/7"
     !cmake --build . -- -j5
     !cmake --build . --target install
   endif
@@ -73,6 +73,7 @@ Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'dyng/ctrlsf.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'

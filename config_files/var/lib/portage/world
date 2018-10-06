@@ -24,12 +24,15 @@ app-i18n/fcitx
 app-i18n/fcitx-cloudpinyin
 app-i18n/fcitx-configtool
 app-i18n/fcitx-libpinyin
+app-misc/bat
 app-misc/colordiff
 app-misc/evemu
 app-misc/neofetch
 app-misc/ranger
 app-misc/task
+app-misc/tealdeer
 app-misc/tmux
+app-misc/tusk
 app-misc/xmind
 app-portage/cpuid2cpuflags
 app-portage/eix
@@ -85,7 +88,6 @@ media-sound/alsa-utils
 media-sound/mpc
 media-sound/mpd
 media-sound/ncmpcpp
-media-sound/netease-cloud-music
 media-video/mpv
 media-video/vlc
 net-analyzer/mtr
@@ -113,6 +115,7 @@ net-proxy/privoxy
 net-wireless/iw
 sci-mathematics/calc
 sys-apps/dmidecode
+sys-apps/fd
 sys-apps/gsmartcontrol
 sys-apps/lm_sensors
 sys-apps/mlocate

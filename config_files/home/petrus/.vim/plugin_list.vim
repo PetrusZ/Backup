@@ -81,6 +81,7 @@ Plug 'Shougo/echodoc.vim'
 
 Plug 'Shougo/denite.nvim'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+" Plug 'edkolev/tmuxline.vim'
 " Plug 'ryanoasis/vim-devicons'
 
 Plug 'w0rp/ale'

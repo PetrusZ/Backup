@@ -1113,6 +1113,9 @@ let g:keysound_enable = 1
 let g:keysound_theme = 'default'
 let g:keysound_volume = 1000
 
+" LeaderF
+let g:Lf_CacheDirectory = $HOME."/.cache"
+
 " Add custom menus
 let s:menus = {}
 

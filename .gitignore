@@ -1,5 +1,8 @@
 # dir
 .ssh
 .task
-*.swp
 vimwiki
+
+# file
+*.swp
+config_files/home/petrus/Scripts/pt_attendance.sh

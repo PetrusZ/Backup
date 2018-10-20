@@ -104,6 +104,7 @@ Plug 'tyru/open-browser.vim'
 " Plug 'skywind3000/vim-keysound'
 " Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
+Plug 'lilydjwg/fcitx.vim'
 
 " colorscheme
 Plug 'morhetz/gruvbox'
@@ -124,7 +125,6 @@ Plug 'vim-pandoc/vim-pandoc'
 " Plug 'craigemery/vim-autotag'
 "
 " NO LONGER MAINTAINED:
-" Plug 'lilydjwg/fcitx.vim'
 " Plug 'vim-scripts/TaskList.vim'
 
 call plug#end()

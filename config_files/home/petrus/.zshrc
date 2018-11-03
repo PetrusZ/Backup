@@ -60,6 +60,7 @@ ZSH_THEME="spaceship"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  docker
   common-aliases
   command-not-found
   colored-man-pages

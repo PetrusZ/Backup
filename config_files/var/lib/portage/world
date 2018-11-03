@@ -20,6 +20,7 @@ app-dicts/stardict-oxford-en-zh-gb
 app-editors/emacs
 app-editors/gvim
 app-editors/vim
+app-emulation/docker
 app-i18n/fcitx
 app-i18n/fcitx-cloudpinyin
 app-i18n/fcitx-configtool

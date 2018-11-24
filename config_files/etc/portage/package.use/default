@@ -22,6 +22,7 @@ x11-misc/rofi windowmode
 x11-misc/dunst dunstify
 x11-terms/gnome-terminal -gnome-shell -nautilus
 sys-apps/portage rsync-verify
+sys-boot/woeusb minimal
 www-client/chromium widevine jumbo-build -gnome-keyring
 www-client/uget aria2
 media-libs/harfbuzz icu

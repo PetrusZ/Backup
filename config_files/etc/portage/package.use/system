@@ -2,3 +2,7 @@
 # required by @selected
 # required by @world (argument)
 >=net-libs/nodejs-8.12.0 inspector
+# required by media-video/mpv-0.27.2::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-video/ffmpeg-4.1 vaapi

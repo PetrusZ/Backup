@@ -10,6 +10,7 @@ app-i18n/fcitx gtk2 gtk3
 #mail-mta/postfix mbox
 media-sound/mpd audiofile
 media-sound/ncmpcpp clock visualizer
+media-video/mpv bluray vaapi zsh-completion
 media-fonts/source-han-sans L10N: ja ko zh-TW
 net-misc/aria2 bittorrent metalink
 net-misc/remmina ssh vnc rdp
